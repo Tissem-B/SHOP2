@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail Produit - SmartFarm Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+       
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="assets/icons/logo.png" alt="SmartFarm Shop">
+                    <span>SmartFarm Shop</span>
+                </a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Boutique</a></li>
+                        <li><a href="#features">Pourquoi nous choisir</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="cart.html" id="cart-btn" data-count="0">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        
+    </header>
+
+    <main class="product-detail-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a> > <a href="products.html">Boutique</a> > <span id="product-category-breadcrumb">Catégorie</span> > <span id="product-name-breadcrumb">Produit</span>
+            </div>
+
+            <div class="product-detail-container">
+                <div class="product-gallery">
+                    <div class="main-image">
+                        <img id="main-product-image" src="" alt="Image principale du produit">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnail-images">
+                        <!-- Miniatures chargées via JS -->
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1 id="product-name">Nom du produit</h1>
+                    <div class="product-meta">
+                        <div class="product-rating">
+                            <div class="stars" id="product-stars">
+                                <!-- Étoiles chargées via JS -->
+                            </div>
+                            <span id="review-count">(0 avis)</span>
+                        </div>
+                        <div class="product-stock" id="product-stock">
+                            <!-- Statut stock chargé via JS -->
+                        </div>
+                    </div>
+
+                    <div class="product-price">
+                        <span id="current-price">0.00 DA</span>
+                        <span id="original-price" class="original-price"></span>
+                    </div>
+
+                    <div class="product-description">
+                        <p id="product-description-text">Description chargée via JS</p>
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button id="decrease-qty"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="product-qty" value="1" min="1">
+                            <button id="increase-qty"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <button id="add-to-cart" class="btn btn-primary">Ajouter au panier</button>
+                        <button id="buy-now" class="btn btn-secondary">Acheter maintenant</button>
+                    </div>
+
+                    <div class="product-specs">
+                        <h3>Caractéristiques techniques</h3>
+                        <table id="product-specs-table">
+                            <!-- Spécifications chargées via JS -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="specs">Spécifications</button>
+                    <button class="tab-btn" data-tab="reviews">Avis (3)</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-pane active" id="description-tab">
+                        <p id="full-description">Description complète chargée via JS</p>
+                    </div>
+                    <div class="tab-pane" id="specs-tab">
+                        <table id="detailed-specs">
+                            <!-- Spécifications détaillées chargées via JS -->
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="reviews-tab">
+                        <div class="reviews-container" id="reviews-container">
+                            <!-- Avis chargés via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-products">
+                <h2>Produits associés</h2>
+                <div class="products-grid" id="related-products">
+                    <!-- Produits associés chargés via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 SmartFarm Shop. Tous droits réservés.</p>
+     </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

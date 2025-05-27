@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - SmartFarm Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/logo.png" alt="SmartFarm Shop">
+                <span>SmartFarm Shop</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="products.html" class="active">Boutique</a></li>
+                    <li><a href="#features">Pourquoi nous choisir</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="cart.html" id="cart-btn" data-count="0">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="products-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Notre Boutique</h1>
+                <p>Trouvez tout le matériel nécessaire pour votre ferme intelligente</p>
+            </div>
+
+            <div class="products-container">
+                <aside class="products-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Catégories</h3>
+                        <ul class="category-list">
+                            <li><a href="#" data-category="all" class="active">Tous les produits</a></li>
+                            <li><a href="#" data-category="microcontroller">Microcontrôleurs</a></li>
+                            <li><a href="#" data-category="sensor">Capteurs</a></li>
+                            <li><a href="#" data-category="kit">Kits</a></li>
+                            <li><a href="#" data-category="accessory">Accessoires</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>Filtrer par prix</h3>
+                        <div class="price-filter">
+                            <input type="range" id="price-range" min="0" max="500" step="10" value="500">
+                            <div class="price-values">
+                                <span>0 DA</span>
+                                <span id="max-price">500 DA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3>En stock</h3>
+                        <div class="stock-filter">
+                            <label>
+                                <input type="checkbox" id="in-stock-only" checked>
+                                Afficher seulement les produits en stock
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="products-main">
+                    <div class="products-toolbar">
+                        <div class="search-box">
+                            <input type="text" id="product-search" placeholder="Rechercher un produit...">
+                            <button id="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="sort-options">
+                            <select id="sort-by">
+                                <option value="default">Trier par</option>
+                                <option value="price-asc">Prix croissant</option>
+                                <option value="price-desc">Prix décroissant</option>
+                                <option value="name-asc">Nom (A-Z)</option>
+                                <option value="name-desc">Nom (Z-A)</option>
+                                <option value="rating">Meilleures notes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="products-grid">
+                        <!-- Les produits seront chargés dynamiquement ici -->
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Chargement des produits...</p>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <button id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+                        <span id="page-info">Page 1 sur 1</span>
+                        <button id="next-page" disabled><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SmartFarm Shop</h3>
+                    <p>Votre fournisseur de matériel IoT pour l'agriculture intelligente.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Boutique</a></li>
+                        <li><a href="#features">Avantages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact@smartfarmshop.com</li>
+                        <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SmartFarm Shop. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+
+
+
+
+
+   
+</body>
+</html>

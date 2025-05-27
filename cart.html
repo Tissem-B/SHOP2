@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - SmartFarm Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/icons/logo.png" alt="SmartFarm Shop">
+                <span>SmartFarm Shop</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="products.html">Boutique</a></li>
+                    <li><a href="#features">Pourquoi nous choisir</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="cart.html" id="cart-btn" data-count="0">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Votre Panier</h1>
+            </div>
+
+            <div class="cart-container">
+                <div class="cart-items" id="cart-items">
+                    <!-- Articles du panier chargés via JS -->
+                </div>
+
+                <div class="empty-cart" id="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Votre panier est vide</p>
+                    <a href="products.html" class="btn btn-primary">Parcourir les produits</a>
+                </div>
+
+                <div class="cart-summary">
+                    <h3>Résumé de la commande</h3>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Sous-total</span>
+                            <span id="subtotal">0.00 DA</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Livraison</span>
+                            <span id="shipping">Calcul à l'étape suivante</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">0.00 DA</span>
+                        </div>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-primary" disabled>Passer la commande</button>
+                    <p class="secure-checkout">
+                        <i class="fas fa-lock"></i> Paiement sécurisé
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2023 SmartFarm Shop. Tous droits réservés.</p>
+    </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

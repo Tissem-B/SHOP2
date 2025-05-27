@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartFarm Shop - Matériel IoT Agricole</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.png" alt="SmartFarm Shop" />
+          <span>SmartFarm Shop</span>
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="products.html">Boutique</a></li>
+            <li><a href="#features">Pourquoi nous choisir</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="user-actions">
+          <a href="cart.html" id="cart-btn" data-count="0">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Votre ferme intelligente commence ici</h1>
+          <p>
+            Capteurs, contrôleurs et équipements IoT pour l'agriculture moderne
+          </p>
+          <a href="products.html" class="btn btn-primary"
+            >Explorer les produits</a
+          >
+        </div>
+      </section>
+
+      <section class="featured-products">
+        <div class="container">
+          <h2>Produits populaires</h2>
+          <div class="products-grid" id="featured-products">
+            <!-- Produits chargés via JS -->
+          </div>
+          <div class="text-center">
+            <a href="products.html" class="btn btn-secondary"
+              >Voir tous les produits</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="container">
+          <h2>Pourquoi choisir SmartFarm Shop?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <i class="fas fa-truck"></i>
+              <h3>Livraison rapide</h3>
+              <p>Expédition sous 24h pour toutes les commandes</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Garantie 2 ans</h3>
+              <p>Tous nos produits sont garantis</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-headset"></i>
+              <h3>Support technique</h3>
+              <p>Assistance par des experts IoT</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const API_URL = "http://localhost:5000"; // Remplacez par votre IP si nécessaire
+
+        // Fonction d'animation
+        function animateValue(id, start, end, duration) {
+          const element = document.getElementById(id);
+          if (!element) return;
+
+          let startTime = null;
+          const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const value = Math.floor(progress * (end - start) + start);
+
+            if (id === "revenue-value") {
+              element.textContent = `${value.toLocaleString("fr-FR")} €`;
+            } else {
+              element.textContent = value.toLocaleString("fr-FR");
+            }
+
+            if (progress < 1) {
+              window.requestAnimationFrame(animate);
+            }
+          };
+          window.requestAnimationFrame(animate);
+        }
+
+        // Charger les données
+        function loadStats() {
+          // Produits vendus
+          fetch(`${API_URL}/products/sold/count`)
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.success) {
+                animateValue("sold-count", 0, data.soldCount, 1000);
+              }
+            })
+            .catch((err) => console.error("Erreur:", err));
+
+          // Revenu et commandes
+          fetch(`${API_URL}/products/revenue`)
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.success) {
+                animateValue("revenue-value", 0, data.totalRevenue, 1500);
+                animateValue("orders-value", 0, data.estimatedOrders, 1000);
+              }
+            })
+            .catch((err) => console.error("Erreur:", err));
+        }
+
+        // Initial load
+        loadStats();
+
+        // Actualiser toutes les 30 secondes
+        setInterval(loadStats, 30000);
+      });
+    </script>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3>SmartFarm Shop</h3>
+            <p>
+              Votre fournisseur de matériel IoT pour l'agriculture intelligente.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Liens rapides</h3>
+            <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="products.html">Boutique</a></li>
+              <li><a href="#features">Avantages</a></li>
+              <li><a href="#Contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Contact</h3>
+            <ul>
+              <li><i class="fas fa-envelope"></i> contact@smartfarmshop.com</li>
+              <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+              <li><i class="fas fa-map-marker-alt"></i> Paris, France</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 SmartFarm Shop. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commande - SmartFarm Shop</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/checkout-styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.png" alt="SmartFarm Shop" />
+          <span>SmartFarm Shop</span>
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="products.html">Boutique</a></li>
+            <li><a href="#features">Pourquoi nous choisir</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="user-actions">
+          <a href="cart.html" id="cart-btn" data-count="0">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="checkout-page">
+      <div class="container">
+        <div class="checkout-steps">
+          <div class="step active" data-step="1">
+            <span>1</span>
+            <p>Information</p>
+          </div>
+          <div class="step" data-step="2">
+            <span>2</span>
+            <p>Livraison</p>
+          </div>
+          <div class="step" data-step="3">
+            <span>3</span>
+            <p>Paiement</p>
+          </div>
+          <div class="step" data-step="4">
+            <span>4</span>
+            <p>Confirmation</p>
+          </div>
+        </div>
+
+        <div class="checkout-container">
+          <div class="checkout-form">
+            <form id="checkout-form">
+              <div class="checkout-step active" id="step-1">
+                <h2>Informations de contact</h2>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Téléphone *</label>
+                  <input type="tel" id="phone" required />
+                </div>
+
+                <h2>Adresse de livraison</h2>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name">Prénom *</label>
+                    <input type="text" id="first-name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">Nom *</label>
+                    <input type="text" id="last-name" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="address">Adresse *</label>
+                  <input type="text" id="address" required />
+                </div>
+                <div class="form-group">
+                  <label for="address2">Complément d'adresse</label>
+                  <input type="text" id="address2" />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="postal-code">Code postal *</label>
+                    <input type="text" id="postal-code" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="city">Ville *</label>
+                    <input type="text" id="city" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="country">Pays *</label>
+                  <select id="country" required>
+                    <option value="FR">Oran</option>
+                    <option value="BE">Alger</option>
+                    <option value="CH">Belabass</option>
+                    <option value="LU">Tiaret</option>
+                  </select>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="back-to-cart"
+                  >
+                    Retour au panier
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="continue-to-shipping"
+                  >
+                    Continuer
+                  </button>
+                </div>
+              </div>
+
+              <div class="checkout-step" id="step-2">
+                <h2>Méthode de livraison</h2>
+                <div class="shipping-options">
+                  <div class="shipping-option">
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id="standard-shipping"
+                      value="standard"
+                      checked
+                    />
+                    <label for="standard-shipping">
+                      <span class="shipping-title">Livraison standard</span>
+                      <span class="shipping-price">5.99 DA</span>
+                      <span class="shipping-time">3-5 jours ouvrables</span>
+                    </label>
+                  </div>
+                  <div class="shipping-option">
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id="express-shipping"
+                      value="express"
+                    />
+                    <label for="express-shipping">
+                      <span class="shipping-title">Livraison express</span>
+                      <span class="shipping-price">12.99 DA</span>
+                      <span class="shipping-time">1-2 jours ouvrables</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="back-to-info"
+                  >
+                    Retour
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="continue-to-payment"
+                  >
+                    Continuer
+                  </button>
+                </div>
+              </div>
+
+              <div class="checkout-step" id="step-3">
+                <h2>Confirmation de commande</h2>
+
+                <div class="payment-summary">
+                  <div class="payment-info">
+                    <h3>Paiement à la livraison</h3>
+                    <p>
+                      Vous paierez directement au livreur lors de la réception
+                      de votre commande.
+                    </p>
+                    <p>
+                      Un reçu sera disponible pour impression après la
+                      confirmation de votre commande.
+                    </p>
+
+                    <div class="payment-total">
+                      <span>Total à payer:</span>
+                      <span id="payment-amount">0.00</span> DA
+                    </div>
+
+                    <button
+                      type="button"
+                      id="confirm-order"
+                      class="btn btn-primary btn-payment"
+                    >
+                      <i class="fas fa-check-circle"></i> Confirmer la commande
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="back-to-shipping"
+                  >
+                    Retour
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="checkout-confirmation" id="checkout-confirmation">
+            <div class="confirmation-content">
+              <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h2>Commande confirmée!</h2>
+              <p id="order-number">
+                Votre numéro de commande est <strong>#SF123456</strong>
+              </p>
+              <p>Nous avons enregistré votre commande avec succès.</p>
+              <div class="order-details">
+                <div class="detail-row">
+                  <span>Date</span>
+                  <span id="order-date">01/01/2023</span>
+                </div>
+                <div class="detail-row">
+                  <span>Total</span>
+                  <span id="order-total">0.00 DA</span>
+                </div>
+                <div class="detail-row">
+                  <span>Méthode de paiement</span>
+                  <span id="payment-method">Paiement à la livraison</span>
+                </div>
+              </div>
+              <div class="receipt-actions">
+                <button id="print-receipt" class="btn btn-secondary">
+                  <i class="fas fa-print"></i> Imprimer le reçu
+                </button>
+                <a href="products.html" class="btn btn-primary"
+                  >Continuer vos achats</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-summary">
+            <h3>Résumé de la commande</h3>
+            <div id="checkout-summary-items">
+              <!-- Les articles seront chargés ici -->
+            </div>
+            <div class="summary-totals">
+              <div class="summary-row">
+                <span>Sous-total</span>
+                <span id="checkout-subtotal">0.00 DA</span>
+              </div>
+              <div class="summary-row">
+                <span>Livraison</span>
+                <span id="checkout-shipping">0.00 DA</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="checkout-total">0.00 DA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2023 SmartFarm Shop. Tous droits réservés.</p>
+    </footer>
+
+    <div class="toast-container"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/checkout.js"></script>
+  </body>
+</html>

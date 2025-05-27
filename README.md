@@ -1,2 +1,2 @@
-# SHOP2
+# shop
 smart farm shop
